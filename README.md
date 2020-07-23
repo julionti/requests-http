@@ -28,4 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 POC prova de conceito de memory leaks
 o poc.component não é destruído e continua a receber valor(Emitir Valor) mesmo depois de destruído (Mostrar/Destruir)
+
 json-server --watch db.json
