@@ -48,20 +48,20 @@ export class CursosListaComponent implements OnInit {
       );
 
     // Outro forma de tratar erros com rxjs
-    this.service.list()
-      .pipe(
-        // map(),
-        // tap(),
-        // switchMap()
-        catchError(() => EMPTY)
-      )
-      .subscribe(
-        dados => {
-          console.log(dados); // 1-sucesso
-        }
-        // , error => console.error(error), // 2-erro de subscribe
-        // () => console.log('Observable completo!') // 3-subscribe completo
-      );
+    // this.service.list()
+    //   .pipe(
+    //     // map(),
+    //     // tap(),
+    //     // switchMap()
+    //     catchError(() => EMPTY)
+    //   )
+    //   .subscribe(
+    //     dados => {
+    //       console.log(dados); // 1-sucesso
+    //     }
+    //     // , error => console.error(error), // 2-erro de subscribe
+    //     // () => console.log('Observable completo!') // 3-subscribe completo
+    //   );
   }
 
   handleError() {
