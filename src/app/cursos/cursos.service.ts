@@ -22,7 +22,10 @@ export class CursosService {
       );
   }
 
-  create(curso: Curso){
+  loadById(id) {
+    return this.http.get(`${this.API}/${id}`).pipe(take(1)); // para não precisar de unsubscribe
+  }
+  create(curso: Curso) {
     return this.http.post(this.API, curso).pipe(take(1));
   }
 }
