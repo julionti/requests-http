@@ -24,7 +24,7 @@ export class CursosFormComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let registro = null;
+    // let registro = null;
 
     // this.route.params.subscribe(
     //   (params: any) => {
@@ -40,29 +40,32 @@ export class CursosFormComponent implements OnInit {
     //   }
     // );
 
-    this.route.params // unsubscribe automatico
-      .pipe(
-        map((params: any) => params.id), // recebe o params e retorna o id
-        switchMap(id => this.service.loadById(id)) // precisa retornar um observable, devolve o valor do último pedido e o take
-        // switchMap(cursos => obterAulas)
-        // concatMap a ordem da requisição importa
-        // mergeMap  a ordem da requisição NÃO importa
-        // exaustMap casos de login (só processa a proxima req após receber a resposta da anterior)
-      )
-      .subscribe(curso => this.updateForm(curso)); // retornado pelo switchmap
+    // this.route.params // unsubscribe automatico
+    //   .pipe(
+    //     map((params: any) => params.id), // recebe o params e retorna o id
+    //     switchMap(id => this.service.loadById(id)) // precisa retornar um observable, devolve o valor do último pedido e o take
+    //     // switchMap(cursos => obterAulas)
+    //     // concatMap a ordem da requisição importa
+    //     // mergeMap  a ordem da requisição NÃO importa
+    //     // exaustMap casos de login (só processa a proxima req após receber a resposta da anterior)
+    //   )
+    //   .subscribe(curso => this.updateForm(curso)); // retornado pelo switchmap
+
+    const curso = this.route.snapshot.data.curso; //  mesmo nome dos resolve: {curso em cursos-routing
 
     this.form = this.fb.group({
-      id: [null],
-      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]]
+      id: [curso.id],
+      nome: [curso.nome, [Validators.required, Validators.minLength(3), Validators.maxLength(250)]]
     });
   }
 
-  updateForm(curso) {
-    this.form.patchValue({
-      id: curso.id,
-      nome: curso.nome
-    });
-  }
+  // não preciso mais pois está disponivel em const curso
+  // updateForm(curso) {
+  //   this.form.patchValue({
+  //     id: curso.id,
+  //     nome: curso.nome
+  //   });
+  // }
 
   onSubmit() {
     this.submitted = true;
