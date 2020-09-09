@@ -8,6 +8,7 @@ import { CursosService } from './../cursos.service';
 import { Curso } from './curso';
 import { AlertModalComponent } from './../../shared/alert-modal/alert-modal.component';
 import { AlertModalService } from './../../shared/alert-modal.service';
+import { Cursos2Service } from '../cursos2.service';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -31,7 +32,8 @@ export class CursosListaComponent implements OnInit {
   cursoSelecionado: Curso;
 
   constructor(
-    private service: CursosService,
+    // private service: CursosService,
+    private service: Cursos2Service,
     private modalService: BsModalService,
     private alertService: AlertModalService,
     private router: Router,
