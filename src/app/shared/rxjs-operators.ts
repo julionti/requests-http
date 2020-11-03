@@ -10,7 +10,7 @@ export function filterResponse<T>() {
 }
 
 export function uploadProgress<T>(cb: (progress: number) => void) {
-  return tap((event: HttpEvent<T>) => {
+  return tap((event: HttpEvent<T>) => { // tap = operador q não faz nada
     if (event.type === HttpEventType.UploadProgress) {
       cb(Math.round(event.loaded * 100 / event.total));
     }

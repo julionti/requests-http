@@ -45,7 +45,7 @@ export class UploadFileComponent implements OnInit {
       this.serv = this.service.upload(this.files, environment.BASE_URL + '/upload')
         .pipe(
           uploadProgress(progress => {
-            console.log(progress);
+            // console.log(progress);
             this.progress = progress;
           }),
           filterResponse()
@@ -68,5 +68,19 @@ export class UploadFileComponent implements OnInit {
 
   OnDestroy() {
     this.serv.unsubscribe();
+  }
+
+  onDownloadExcel() {
+    this.service.download(environment.BASE_URL + '/downloadExcel')
+      .subscribe((res: any) => {
+        this.service.handleFile(res, 'report.xlsx');
+      });
+  }
+
+  onDownloadPDF() {
+    this.service.download(environment.BASE_URL + '/downloadPDF')
+    .subscribe((res: any) => {
+      this.service.handleFile(res, 'report.pdf');
+    });
   }
 }
