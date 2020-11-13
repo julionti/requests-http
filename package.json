@@ -5,7 +5,7 @@
     "ng": "ng",
     "start1": "ng serve --proxy-config proxy.conf.js",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build",
+     "build": "ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
     "bootstrap": "^4.5.0",
+    "classlist.js": "^1.1.20150312",
     "ngx-bootstrap": "^5.6.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
